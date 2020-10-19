@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<script 
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+	.reverse { background: black; color: white; }
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("h2").on({
+			//click하면 *추가
+			click: function() {
+				$(this).html(function (index, html) {
+				return html + "*";
+				});
+			},
+			//mouse 올리면 reverse css 추가
+			mouseenter: function() {
+				$(this).addClass("reverse");
+			},
+			//mouse 내리면 reverse css 제거
+			mouseleave: function() {
+				$(this).removeClass("reverse");
+			}
+		});
+		
+		//btn1을 click하면 h2 이벤트 제거
+		$("#btn1").click(function() {
+			$("h2").off("click");
+		});
+	});
+	</script>
+</head>
+<body>
+	<h2>안녕하세요1.</h2>
+	<h2>안녕하세요2.</h2>
+	<h2>안녕하세요3.</h2>
+	<button id="btn1">클릭제거</button>
+</body>
+</html>
+
+
